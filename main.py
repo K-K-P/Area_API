@@ -43,6 +43,6 @@ class Item(BaseModel):
 @app.post('/items')
 async def create_item(item: Item):
     item_dict = item.dict()
-    item_dict['price'] = item.price * (1 + tax/100)
+    item_dict['price'] = item.price * (1 + item.tax/100)
     return item_dict
 
